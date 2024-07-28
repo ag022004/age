@@ -11,7 +11,7 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f4f4f9;
+      background-color: #121212;
       margin: 0;
       padding: 0;
       display: flex;
@@ -23,7 +23,7 @@
     .navbar {
       display: flex;
       justify-content: center;
-      background-color: #333;
+      background-color: #1f1f1f;
       padding: 1rem;
       width: 100%;
       position: fixed;
@@ -64,26 +64,30 @@
     }
 
     .container {
-      background: #fff;
+      background: #1f1f1f;
       padding: 2rem;
       border-radius: 50px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       width: 90%;
       max-width: 400px;
-      border: 2px solid #ddd;
+      border: 2px solid #2c2c2c;
+      color: #c0c0c0;
     }
 
     .form-input {
       width: calc(100% - 2rem);
       padding: 1rem;
       margin: 0.5rem 0;
-      border: 1px solid #ddd;
+      border: 1px solid #2c2c2c;
       border-radius: 4px;
+      background-color: #121212;
+      color: #c0c0c0;
     }
 
     .form-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       padding: 1rem 2rem;
       border: none;
       background-color: #ffdd57;
@@ -120,7 +124,6 @@
       <form id="age-form">
         <input type="date" id="birthdate" class="form-input" required>
         <button type="submit" class="form-btn">
-          <ion-icon name="calculator-outline"></ion-icon>
           <span>Calculate Age</span>
         </button>
       </form>
@@ -138,7 +141,8 @@
       if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdate.getDate())) {
         age--;
       }
-      document.getElementById('result').textContent = `Your age is ${age} years.`;
+      const ageText = age === 1 ? 'year' : 'years';
+      document.getElementById('result').textContent = `Your age is ${age} ${ageText}.`;
     });
   </script>
 
