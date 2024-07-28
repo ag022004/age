@@ -49,6 +49,7 @@
       border-radius: 4px;
       background-color: #121212;
       color: #c0c0c0;
+      position: relative;
     }
 
     .form-input::placeholder {
@@ -59,11 +60,15 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      color: #c0c0c0;
-      background-color: #121212;
-      border: 1px solid #2c2c2c;
-      border-radius: 4px;
-      padding: 1rem;
+    }
+
+    .form-input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      right: 1rem;
+      color: #c0c0c0; /* Matching the color of "Age Calculator" heading */
+      background: transparent;
+      cursor: pointer;
+      filter: invert(1); /* To make the icon white */
     }
 
     .form-btn {
