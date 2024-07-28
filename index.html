@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator</title>
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Styles from the provided template */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+      padding: 1rem;
+    }
+
+    .navbar-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .navbar-item {
+      margin: 0 1rem;
+    }
+
+    .navbar-link {
+      text-decoration: none;
+      color: #c0c0c0;
+      font-weight: 500;
+    }
+
+    .navbar-link:hover, .navbar-link:focus, .navbar-link.active {
+      color: #ffdd57;
+    }
+
+    .main-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      text-align: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-input {
+      width: calc(100% - 2rem);
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .form-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      border: none;
+      background-color: #ffdd57;
+      color: #333;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .form-btn:hover {
+      background-color: #e6c44d;
+    }
+
+    .result {
+      margin-top: 1rem;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <ul class="navbar-list">
+      <li class="navbar-item"><a href="#" class="navbar-link active" onclick="showPage('calculator')">Age Calculator</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-content">
+    <div class="container">
+      <h1>Age Calculator</h1>
+      <form id="age-form">
+        <input type="date" id="birthdate" class="form-input" required>
+        <button type="submit" class="form-btn">
+          <ion-icon name="calculator-outline"></ion-icon>
+          <span>Calculate Age</span>
+        </button>
+      </form>
+      <div id="result" class="result"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('age-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const birthdate = new Date(document.getElementById('birthdate').value);
+      const today = new Date();
+      let age = today.getFullYear() - birthdate.getFullYear();
+      const monthDifference = today.getMonth() - birthdate.getMonth();
+      if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdate.getDate())) {
+        age--;
+      }
+      document.getElementById('result').textContent = `Your age is ${age} years.`;
+    });
+  </script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
